@@ -14,13 +14,13 @@ This Flask application allows users to upload MRI scans, perform inference using
 1. Build the Docker image:
 
     ```bash
-    docker build -t flask-medical-app .
+    docker build -t pinn-segresunet-flaskapp .
     ```
 
 2. Run the Docker container:
 
     ```bash
-    docker run -p 5000:5000 flask-medical-app
+    docker run -p 5000:5000 pinn-segresunet-flaskapp
     ```
 
 3. Open your web browser and go to `http://localhost:5000` to access the application.
