@@ -7,6 +7,8 @@ import matplotlib.pyplot as plt
 import os
 from flask import current_app
 import io
+from datetime import datetime
+
 
 
 
@@ -62,6 +64,10 @@ def visualize_single_modality_prediction(image_tensor, output_tensor, filename="
     # Define the path for the uploads directory
     uploads_dir = os.path.join(current_app.root_path, 'static/uploads')  # 'static/uploads'
     os.makedirs(uploads_dir, exist_ok=True)  # Ensure the uploads directory exists
+
+     # Generate a unique filename based on the current timestamp
+    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")  # e.g., "20240916_121530"
+    filename = f"result_image_{timestamp}.png"
 
     # Save the figure to the uploads folder
     filepath = os.path.join(uploads_dir, filename)
@@ -133,8 +139,12 @@ def visualize_multiple_modality_prediction(inputs, prediction, selected_slices=N
     uploads_dir = os.path.join(current_app.root_path, 'static/uploads')  
     os.makedirs(uploads_dir, exist_ok=True)  
 
-    # Save the figure to the uploads folder
-    filename = "filename.png"
+
+     # Generate a unique filename based on the current timestamp
+    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")  # e.g., "20240916_121530"
+    filename = f"result_image_{timestamp}.png"
+
+
     filepath = os.path.join(uploads_dir, filename)
     plt.savefig(filepath)
     plt.close(fig)

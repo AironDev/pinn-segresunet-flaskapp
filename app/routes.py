@@ -15,6 +15,15 @@ main = Blueprint('main', __name__)
 def home():
     return render_template('index.html')
 
+
+@main.route('/smodality')
+def smodality():
+    return render_template('smodality.html')
+
+@main.route('/mmodality')
+def mmodality():
+    return render_template('mmodality.html')
+
 @main.route('/smodality-predict', methods=['POST'])
 def upload_file():
     # Process the uploaded file and perform inference

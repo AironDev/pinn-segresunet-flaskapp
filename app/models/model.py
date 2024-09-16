@@ -119,6 +119,7 @@ def load_model():
 
     # Load your trained model here
     model = HybridSegResNetUNet(in_channels=5, out_channels=3).to(device)
+    # model.load_state_dict(torch.load("best_metric_model.pth", map_location=device))
     model.load_state_dict(torch.load("best_metric_model.pth", map_location=device))
     model.eval()  # Set the model to evaluation mode
     return model
